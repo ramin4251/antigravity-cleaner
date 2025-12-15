@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tawroot.github.io/antigravity-cleaner/sitemap.xml
