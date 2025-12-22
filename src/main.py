@@ -448,7 +448,7 @@ def browser_login_helper_menu(browser_helper, network_optimizer, logger):
 # --- Session Manager Submenu ---
 
 def session_manager_menu(session_manager, browser_helper, logger):
-    """Session Manager submenu"""
+    """Session Manager submenu with email search support"""
     while True:
         console.print("\n" + "="*70)
         console.print("[bold green]SESSION MANAGER | مدیریت نشست‌ها[/bold green]")
@@ -461,14 +461,16 @@ def session_manager_menu(session_manager, browser_helper, logger):
         console.print("   [dim]لیست تمام Session های ذخیره‌شده[/dim]")
         console.print("\n4. [red]Delete Old Sessions[/red]")
         console.print("   [dim]حذف Session های قدیمی[/dim]")
+        console.print("\n5. [blue]Search Profiles by Email[/blue]")
+        console.print("   [dim]جستجوی پروفایل بر اساس ایمیل[/dim]")
         console.print("\n0. [dim]Back to Main Menu[/dim]")
         
-        choice = Prompt.ask("\nEnter choice", choices=["0", "1", "2", "3", "4"], default="0")
+        choice = Prompt.ask("\nEnter choice", choices=["0", "1", "2", "3", "4", "5"], default="0")
         
         if choice == "0":
             break
         elif choice == "1":
-            # Backup session
+            # Backup session with email search
             browsers = browser_helper.detect_installed_browsers()
             if not browsers:
                 console.print("[red]No supported browsers found.[/red]")
@@ -477,20 +479,47 @@ def session_manager_menu(session_manager, browser_helper, logger):
             console.print(f"\n[cyan]Found browsers: {', '.join(browsers)}[/cyan]")
             browser = Prompt.ask("Select browser", choices=browsers)
             
-            profiles = browser_helper.get_browser_profiles(browser)
+            # Ask if user wants to search by email
+            search_by_email = Confirm.ask("Search profile by email?", default=True)
+            
+            if search_by_email:
+                email_query = Prompt.ask("Enter email (or part of it)")
+                profiles = browser_helper.search_profiles_by_email(browser, email_query)
+            else:
+                profiles = browser_helper.get_browser_profiles_with_email(browser)
+            
             if not profiles:
                 console.print("[red]No profiles found.[/red]")
                 continue
             
-            profile_names = [p[0] for p in profiles]
-            profile_name = Prompt.ask("Select profile", choices=profile_names, default=profile_names[0])
-            profile_path = next(p[1] for p in profiles if p[0] == profile_name)
+            # Display profiles with emails
+            console.print("\n[cyan]Available profiles:[/cyan]")
+            table = Table()
+            table.add_column("#", style="dim", width=4)
+            table.add_column("Profile", style="cyan")
+            table.add_column("Email", style="yellow")
             
-            session_name = Prompt.ask("Session name (optional)", default="")
+            for i, p in enumerate(profiles, 1):
+                email_display = p.get('email') or '[dim]No email[/dim]'
+                table.add_row(str(i), p['name'], email_display)
+            
+            console.print(table)
+            
+            # Select profile
+            profile_idx = int(Prompt.ask("Select profile number", 
+                                         choices=[str(i) for i in range(1, len(profiles)+1)]))
+            selected_profile = profiles[profile_idx - 1]
+            
+            session_name = Prompt.ask("Session name (optional, press Enter for auto)", default="")
             if not session_name:
-                session_name = None
+                # Auto-generate with email if available
+                if selected_profile.get('email'):
+                    email_prefix = selected_profile['email'].split('@')[0]
+                    session_name = f"{browser}_{email_prefix}_{datetime.now().strftime('%Y%m%d')}"
+                else:
+                    session_name = None
             
-            if session_manager.backup_session(browser, profile_path, session_name):
+            if session_manager.backup_session(browser, selected_profile['path'], session_name):
                 console.print("[green]✓ Session backed up successfully![/green]")
             else:
                 console.print("[red]✗ Session backup failed.[/red]")
@@ -510,16 +539,41 @@ def session_manager_menu(session_manager, browser_helper, logger):
             session_idx = int(Prompt.ask("Select session number", choices=[str(i) for i in range(1, len(sessions)+1)]))
             selected_session = sessions[session_idx - 1]
             
-            # Get browser and profile
+            # Get browser and profile with email search
             browsers = browser_helper.detect_installed_browsers()
             browser = Prompt.ask("Select browser", choices=browsers, default=selected_session['browser'])
             
-            profiles = browser_helper.get_browser_profiles(browser)
-            profile_names = [p[0] for p in profiles]
-            profile_name = Prompt.ask("Select profile", choices=profile_names, default=profile_names[0])
-            profile_path = next(p[1] for p in profiles if p[0] == profile_name)
+            # Ask if user wants to search by email
+            search_by_email = Confirm.ask("Search profile by email?", default=True)
             
-            if session_manager.restore_session(selected_session['name'], browser, profile_path):
+            if search_by_email:
+                email_query = Prompt.ask("Enter email (or part of it)")
+                profiles = browser_helper.search_profiles_by_email(browser, email_query)
+            else:
+                profiles = browser_helper.get_browser_profiles_with_email(browser)
+            
+            if not profiles:
+                console.print("[red]No profiles found.[/red]")
+                continue
+            
+            # Display profiles with emails
+            console.print("\n[cyan]Available profiles:[/cyan]")
+            table = Table()
+            table.add_column("#", style="dim", width=4)
+            table.add_column("Profile", style="cyan")
+            table.add_column("Email", style="yellow")
+            
+            for i, p in enumerate(profiles, 1):
+                email_display = p.get('email') or '[dim]No email[/dim]'
+                table.add_row(str(i), p['name'], email_display)
+            
+            console.print(table)
+            
+            profile_idx = int(Prompt.ask("Select profile number", 
+                                         choices=[str(i) for i in range(1, len(profiles)+1)]))
+            selected_profile = profiles[profile_idx - 1]
+            
+            if session_manager.restore_session(selected_session['name'], browser, selected_profile['path']):
                 console.print("[green]✓ Session restored successfully![/green]")
             else:
                 console.print("[red]✗ Session restore failed.[/red]")
@@ -555,6 +609,67 @@ def session_manager_menu(session_manager, browser_helper, logger):
             if Confirm.ask("Delete all expired sessions?"):
                 count = session_manager.delete_expired_sessions()
                 console.print(f"[green]✓ Deleted {count} expired sessions[/green]")
+        
+        elif choice == "5":
+            # Search profiles by email
+            browsers = browser_helper.detect_installed_browsers()
+            if not browsers:
+                console.print("[red]No supported browsers found.[/red]")
+                continue
+            
+            console.print(f"\n[cyan]Found browsers: {', '.join(browsers)}[/cyan]")
+            browser = Prompt.ask("Select browser", choices=browsers + ["all"], default="all")
+            
+            email_query = Prompt.ask("Enter email to search (or part of it)")
+            
+            if browser == "all":
+                all_profiles = []
+                for b in browsers:
+                    profiles = browser_helper.search_profiles_by_email(b, email_query)
+                    for p in profiles:
+                        p['browser'] = b
+                    all_profiles.extend(profiles)
+                profiles = all_profiles
+            else:
+                profiles = browser_helper.search_profiles_by_email(browser, email_query)
+                for p in profiles:
+                    p['browser'] = browser
+            
+            if not profiles:
+                console.print(f"[yellow]No profiles found matching '{email_query}'[/yellow]")
+                continue
+            
+            console.print(f"\n[green]Found {len(profiles)} matching profiles:[/green]")
+            table = Table()
+            table.add_column("#", style="dim", width=4)
+            table.add_column("Browser", style="magenta")
+            table.add_column("Profile", style="cyan")
+            table.add_column("Email", style="yellow")
+            
+            for i, p in enumerate(profiles, 1):
+                email_display = p.get('email') or '[dim]No email[/dim]'
+                table.add_row(str(i), p.get('browser', ''), p['name'], email_display)
+            
+            console.print(table)
+            
+            # Ask if user wants to backup
+            if Confirm.ask("Backup one of these profiles?"):
+                profile_idx = int(Prompt.ask("Select profile number", 
+                                             choices=[str(i) for i in range(1, len(profiles)+1)]))
+                selected_profile = profiles[profile_idx - 1]
+                
+                session_name = Prompt.ask("Session name (optional)", default="")
+                if not session_name:
+                    if selected_profile.get('email'):
+                        email_prefix = selected_profile['email'].split('@')[0]
+                        session_name = f"{selected_profile['browser']}_{email_prefix}_{datetime.now().strftime('%Y%m%d')}"
+                    else:
+                        session_name = None
+                
+                if session_manager.backup_session(selected_profile['browser'], selected_profile['path'], session_name):
+                    console.print("[green]✓ Session backed up successfully![/green]")
+                else:
+                    console.print("[red]✗ Session backup failed.[/red]")
         
         if choice != "0":
             if not Confirm.ask("\nContinue in Session Manager?"):

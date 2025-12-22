@@ -174,6 +174,113 @@ class BrowserHelper:
         self.logger.debug(f"Found {len(profiles)} profiles for {browser}: {[p[0] for p in profiles]}")
         return profiles
     
+    def get_profile_email(self, browser: str, profile_path: str) -> Optional[str]:
+        """
+        Extract email address from browser profile.
+        
+        Args:
+            browser: Browser key
+            profile_path: Path to browser profile
+        
+        Returns:
+            Email address if found, None otherwise
+        """
+        if browser == 'firefox':
+            # Firefox doesn't store email in the same way
+            return None
+        
+        # Chromium-based browsers store profile info in Preferences file
+        prefs_file = os.path.join(profile_path, 'Preferences')
+        if not os.path.exists(prefs_file):
+            return None
+        
+        try:
+            with open(prefs_file, 'r', encoding='utf-8') as f:
+                prefs = json.load(f)
+            
+            # Try different paths where email might be stored
+            # Path 1: account_info
+            account_info = prefs.get('account_info', [])
+            if account_info and isinstance(account_info, list):
+                for account in account_info:
+                    if 'email' in account:
+                        return account['email']
+            
+            # Path 2: google.services
+            google_services = prefs.get('google', {}).get('services', {})
+            if 'last_username' in google_services:
+                return google_services['last_username']
+            
+            # Path 3: signin info
+            signin = prefs.get('signin', {})
+            if 'allowed' in signin:
+                # Try to find email from sync
+                sync_info = prefs.get('sync', {})
+                if sync_info:
+                    # Sometimes email is in sync preferences
+                    pass
+            
+            # Path 4: Profile name (sometimes contains email)
+            profile = prefs.get('profile', {})
+            name = profile.get('name', '')
+            if '@' in name:
+                return name
+            
+        except Exception as e:
+            self.logger.debug(f"Could not read profile preferences: {e}")
+        
+        return None
+    
+    def get_browser_profiles_with_email(self, browser: str) -> List[Dict]:
+        """
+        Get all profiles with their email addresses.
+        
+        Args:
+            browser: Browser key
+        
+        Returns:
+            List of dicts: {'name': str, 'path': str, 'email': str or None}
+        """
+        profiles = self.get_browser_profiles(browser)
+        result = []
+        
+        for profile_name, profile_path in profiles:
+            email = self.get_profile_email(browser, profile_path)
+            result.append({
+                'name': profile_name,
+                'path': profile_path,
+                'email': email
+            })
+        
+        return result
+    
+    def search_profiles_by_email(self, browser: str, email_query: str) -> List[Dict]:
+        """
+        Search profiles by email address.
+        
+        Args:
+            browser: Browser key
+            email_query: Email or part of email to search
+        
+        Returns:
+            List of matching profiles
+        """
+        profiles = self.get_browser_profiles_with_email(browser)
+        
+        if not email_query:
+            return profiles
+        
+        email_query = email_query.lower()
+        matches = []
+        
+        for profile in profiles:
+            email = profile.get('email', '') or ''
+            if email_query in email.lower():
+                matches.append(profile)
+        
+        self.logger.debug(f"Found {len(matches)} profiles matching '{email_query}'")
+        return matches
+    
     # ==================== Process Management ====================
     
     def is_browser_running(self, browser: str) -> bool:
