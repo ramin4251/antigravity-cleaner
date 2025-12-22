@@ -1,4 +1,4 @@
-# Antigravity Cleaner v2.0 🌍
+# Antigravity Cleaner v2.1.1 🌍
 ### The Ultimate Cross-Platform Cleaning Tool | ابزار پاک‌سازی نهایی کراس‌پلتفرم
 
 [![Python](https://img.shields.io/badge/Made%20with-Python-blue?style=for-the-badge&logo=python)](https://python.org)
@@ -475,6 +475,69 @@ curl -sL https://raw.githubusercontent.com/tawroot/antigravity-cleaner/main/inst
 - 🔒 ذخیره‌سازی فقط محلی (بدون cloud)
 - 🔒 انقضای خودکار 30 روزه
 - 🔒 مجوزهای فایل محدود
+
+---
+
+### 🔍 Search Profiles by Email | جستجوی پروفایل بر اساس ایمیل
+
+**NEW in v2.1.1:** If you have many browser profiles (50+), you can now search by email!
+
+**Option 5: Search Profiles by Email**
+- Enter full email or just part of it (e.g., `@gmail.com`)
+- Shows matching profiles from all browsers
+- Backup directly from search results
+- Works with Chrome, Edge, and Brave
+
+**Example:**
+```
+Enter email to search: tawana
+Found 3 matching profiles:
+#   Browser   Profile      Email
+1   chrome    Profile 22   tawanamohammadi@gmail.com
+2   chrome    Profile 25   tawanaveo@gmail.com
+3   chrome    Profile 34   tawanaproxy@gmail.com
+```
+
+---
+
+### 📦 Transfer Sessions Between Systems | انتقال Session بین سیستم‌ها
+
+**How to transfer your saved sessions to another computer:**
+
+#### Step 1: On Source Computer (Export)
+```powershell
+# Open the sessions folder
+explorer "$env:USERPROFILE\.antigravity-cleaner\sessions"
+
+# Copy these files:
+# - .key (encryption key)
+# - tawana.session (your session file)
+```
+
+#### Step 2: Transfer Files
+- USB drive
+- Email (zip first)
+- Telegram/WhatsApp
+- Google Drive
+
+#### Step 3: On Target Computer (Import)
+```powershell
+# Create the sessions folder
+mkdir "$env:USERPROFILE\.antigravity-cleaner\sessions"
+
+# Copy the files (.key and .session) into this folder
+# Then run the cleaner and use Session Manager -> Restore
+```
+
+**⚠️ Important:** Both `.key` and `.session` files are required! Without the `.key` file, the session cannot be decrypted.
+
+**مراحل انتقال Session به فارسی:**
+
+1. **روی سیستم مبدا:** پوشه `%USERPROFILE%\.antigravity-cleaner\sessions\` را باز کنید
+2. **فایل‌ها را کپی کنید:** `.key` و `*.session`
+3. **با فلش/تلگرام ارسال کنید**
+4. **روی سیستم مقصد:** پوشه `sessions` را بسازید و فایل‌ها را کپی کنید
+5. **Session Manager → Restore** را اجرا کنید
 
 ---
 

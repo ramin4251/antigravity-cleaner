@@ -258,7 +258,7 @@ class SessionManager:
             if os.name != 'nt':
                 os.chmod(session_file, 0o600)
             
-            self.logger.info(f"✓ Backed up {len(cookies)} cookies to '{session_name}'")
+            self.logger.info(f"[OK] Backed up {len(cookies)} cookies to '{session_name}'")
             return True
             
         except Exception as e:
@@ -353,7 +353,7 @@ class SessionManager:
             conn.commit()
             conn.close()
             
-            self.logger.info(f"✓ Restored {restored_count}/{session_data['cookie_count']} cookies")
+            self.logger.info(f"[OK] Restored {restored_count}/{session_data['cookie_count']} cookies")
             return True
             
         except Exception as e:
@@ -502,7 +502,7 @@ class SessionManager:
         
         try:
             os.remove(session_file)
-            self.logger.info(f"✓ Deleted session '{session_name}'")
+            self.logger.info(f"[OK] Deleted session '{session_name}'")
             return True
         except Exception as e:
             self.logger.error(f"Could not delete session: {e}")
