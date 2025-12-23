@@ -71,15 +71,27 @@ This tool is designed for users in:
 - **✈️ Travelers & Expats**: Users experiencing region lock when traveling internationally or relocating to new countries
 - **🔧 Developers & IT Professionals**: System administrators dealing with installation issues and network diagnostics
 
-### 🌟 Originally Developed for Iran, Now Globally Applicable:
+### 🌟 Comprehensive Solutions for Universal Issues:
 
-While this tool was created to address the specific challenges faced by Iranian users (Google sanctions, network filtering, region lock), the technical solutions it provides are valuable for **anyone experiencing similar connectivity or installation issues**, regardless of location.
+**Antigravity Cleaner** provides a robust toolset to address the most frustrating hurdles for users in restricted or unstable network environments.
 
-**Core Technical Solutions:**
-- 🧹 **Deep System Cleaning**: Removes corrupted files, registry entries, and stuck processes
-- 🌐 **Network Diagnostics**: DNS resolution testing, proxy detection, SSL verification
-- 💾 **Session Management**: Encrypted backup/restore to avoid repeated logins
-- 🔧 **Network Optimization**: DNS cache clearing, network stack reset, connectivity testing
+- **🔐 Google Login Repair & Optimization**:
+  - Automatically fixes common Google login errors (403 Forbidden, 400 Bad Request) caused by regional blocks.
+  - Cleans browser-specific traces that block Google authentication attempts.
+  - Optimizes network settings specifically to bypass login-related connection drops.
+
+- **🌐 Network Stack & DNS Optimization**:
+  - **Flush & Reset**: Full network stack (Winsock) reset and DNS cache flushing to clear interference.
+  - **DNS Health Check**: Identifies if your DNS provider is tampering with service connections.
+  - **Proxy Conflict Resolution**: Detects and helps resolve hidden proxy settings that disrupt browser connectivity.
+
+- **💾 Local Encrypted Session Management**:
+  - **Secure Extraction**: Safely extracts session cookies from browser profiles for transfer or backup.
+  - **Zero-Cloud Privacy**: All data is stored **locally** on your machine. **No data is ever sent to any external server.**
+  - **AES-256 Encryption**: Sessions are saved using industry-standard encryption, protected by a master key unique to your system.
+  - **Profile Portability**: Transfer your authenticated sessions across profiles or devices easily without re-entering passwords.
+
+---
 
 ### 🌐 Multi-Language Documentation:
 
