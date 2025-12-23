@@ -2,6 +2,45 @@
 
 All notable changes to the "Antigravity Cleaner" project will be documented in this file.
 
+## [2.1.1] - 2024-12-23
+
+### Added - Global Expansion 🌍
+- **Multi-Language Documentation**: Full documentation now available in 8 languages
+  - English, Persian/Farsi, Chinese (Simplified), Russian, Turkish, Spanish, Arabic, Urdu
+  - Language-specific guides for regional troubleshooting
+  - Comprehensive keyword coverage for global SEO
+  
+- **Global Problem Statement**: Expanded README to address worldwide use cases
+  - Clearly defines problems solved across restricted networks globally
+  - Lists applicable regions (sanctioned countries, filtered networks, corporate environments)
+  - Positions tool as globally applicable while keeping Iran as origin story
+  
+- **Enhanced SEO & Keywords**: 
+  - Multi-language keyword sections (8 languages)
+  - Comprehensive search term coverage for international discoverability
+  - LLM-friendly structuring for AI model citations
+  
+- **GitHub Topics Recommendations**: 
+  - Suggested 25+ topics for maximum repository discoverability
+  - Categories: Network, Regional Access, Browser/Session, Technical
+  
+- **Email-Based Profile Search**: Search browser profiles by email address
+  - Useful for users with 50+ browser profiles
+  - Supports partial email matching
+  - Works with Chrome, Edge, and Brave
+
+### Changed
+- README structure enhanced with global positioning
+- SEO section expanded from 2 languages to 8 languages
+- Documentation now emphasizes universal applicability
+
+### Documentation
+- Added Wiki links for all 8 supported languages
+- Added comprehensive search keyword lists
+- Added regional use-case examples
+
+---
+
 ## [2.1.0] - 2025-12-10
 
 ### Added

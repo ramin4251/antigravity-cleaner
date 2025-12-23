@@ -41,6 +41,118 @@
 
 ---
 
+## 🌍 Global Problem Statement | بیانیه مشکل جهانی
+
+**Antigravity Cleaner** was originally developed to solve installation and login issues for users in Iran, but the underlying problems it addresses are **universal across restricted networks worldwide**.
+
+### 🎯 The Problem We Solve:
+
+Many users around the world face difficulties accessing Google services and Antigravity IDE due to:
+
+- **🚫 Regional Restrictions**: Google services are unavailable in certain countries due to sanctions (Iran, Cuba, Syria, North Korea, Crimea, DNR, LNR)
+- **🌐 Network Interference**: DNS manipulation, proxy conflicts, and firewall restrictions in heavily filtered networks
+- **🔒 Region Lock Errors**: "Not available in your region" messages during login attempts
+- **📡 Connectivity Issues**: Network errors, timeout problems, SSL certificate failures, and connection drops
+- **🔄 Installation Failures**: Corrupted downloads, stuck processes, leftover registry entries, and incomplete uninstalls
+- **🔐 Session Expiration**: Repeated login prompts, cookie corruption, and authentication loops
+
+### 👥 Who Benefits From This Tool:
+
+This tool is designed for users in:
+
+- **🚨 Heavily Restricted Networks**: Countries with comprehensive internet filtering and censorship (China, Turkmenistan, North Korea, Iran)
+- **⚖️ Sanctioned Regions**: Areas where Google services are officially blocked due to international sanctions (Iran, Cuba, Syria, Crimea, North Korea)
+- **🌐 Partially Filtered Networks**: Regions with selective service restrictions and intermittent blocking (Russia, Turkey, Egypt, Pakistan, Myanmar)
+- **🏢 Network-Limited Environments**: Corporate networks, educational institutions, public WiFi, or government networks with strict policies
+- **✈️ Travelers & Expats**: Users experiencing region lock when traveling internationally or relocating to new countries
+- **🔧 Developers & IT Professionals**: System administrators dealing with installation issues and network diagnostics
+
+### 🌟 Originally Developed for Iran, Now Globally Applicable:
+
+While this tool was created to address the specific challenges faced by Iranian users (Google sanctions, network filtering, region lock), the technical solutions it provides are valuable for **anyone experiencing similar connectivity or installation issues**, regardless of location.
+
+**Core Technical Solutions:**
+- 🧹 **Deep System Cleaning**: Removes corrupted files, registry entries, and stuck processes
+- 🌐 **Network Diagnostics**: DNS resolution testing, proxy detection, SSL verification
+- 💾 **Session Management**: Encrypted backup/restore to avoid repeated logins
+- 🔧 **Network Optimization**: DNS cache clearing, network stack reset, connectivity testing
+
+### 🌐 Multi-Language Documentation:
+
+Full documentation is available in **8 languages** to serve our global community:
+
+| Language | Region Coverage | Wiki Link |
+|----------|----------------|-----------|
+| 🇬🇧 **English** | Global audience | [English Guide](https://github.com/tawroot/antigravity-cleaner/wiki/en) |
+| 🇮🇷 **فارسی (Persian/Farsi)** | Iran, Afghanistan, Tajikistan | [راهنمای فارسی](https://github.com/tawroot/antigravity-cleaner/wiki/fa) |
+| 🇨🇳 **中文 (Chinese Simplified)** | China, Singapore, Taiwan | [中文指南](https://github.com/tawroot/antigravity-cleaner/wiki/zh) |
+| 🇷🇺 **Русский (Russian)** | Russia, Central Asia, Eastern Europe | [Русское руководство](https://github.com/tawroot/antigravity-cleaner/wiki/ru) |
+| 🇹🇷 **Türkçe (Turkish)** | Turkey, Cyprus, Central Asia | [Türkçe Kılavuz](https://github.com/tawroot/antigravity-cleaner/wiki/tr) |
+| 🇪🇸 **Español (Spanish)** | Cuba, Latin America, Spain | [Guía en Español](https://github.com/tawroot/antigravity-cleaner/wiki/es) |
+| 🇦🇪 **العربية (Arabic)** | Syria, Sudan, Middle East, North Africa | [الدليل العربي](https://github.com/tawroot/antigravity-cleaner/wiki/ar) |
+| 🇵🇰 **اردو (Urdu)** | Pakistan, India, Bangladesh | [اردو گائیڈ](https://github.com/tawroot/antigravity-cleaner/wiki/ur) |
+
+📚 **[Visit our Wiki](https://github.com/tawroot/antigravity-cleaner/wiki)** for language-specific guides, regional troubleshooting, and advanced configurations.
+
+### 🔍 Common Search Terms This Tool Addresses:
+
+<details>
+<summary>Click to view search keywords in multiple languages</summary>
+
+**English:**
+- antigravity installation error
+- google login restricted region
+- network error antigravity fix
+- region lock bypass tool
+- sanctioned countries google access
+- dns flush antigravity
+- browser session manager
+- google account region change
+
+**فارسی (Persian):**
+- خطای نصب انتی گرویتی
+- مشکل ورود گوگل ایران
+- تحریم گوگل
+- رفع مشکل شبکه انتی گرویتی
+- تغییر ریجن گوگل
+- پاک کردن کش DNS
+
+**中文 (Chinese):**
+- antigravity 安装错误
+- 谷歌登录区域限制
+- 网络错误修复工具
+- DNS清理工具
+- 浏览器会话管理
+
+**Русский (Russian):**
+- ошибка установки antigravity
+- проблема входа google
+- сброс сети windows
+- региональная блокировка google
+- очистка DNS кеша
+
+**Türkçe (Turkish):**
+- antigravity kurulum hatası
+- google giriş bölge kısıtlaması
+- ağ hatası düzeltme
+- DNS önbellek temizleme
+
+**Español (Spanish):**
+- error instalación antigravity
+- bloqueo regional google
+- error de red antigravity
+- limpiar caché DNS
+
+**العربية (Arabic):**
+- خطأ تثبيت antigravity
+- حظر إقليمي جوجل
+- إصلاح خطأ الشبكة
+- مسح ذاكرة DNS
+
+</details>
+
+---
+
 ## 🇺🇸 English Guide
 
 **Antigravity Cleaner** is a comprehensive utility designed to fully uninstall the "Antigravity" IDE ecosystem and remove deep-rooted leftover files, caches, and configuration glitches. Now rewritten in Python for a beautiful, modern experience on **Windows, macOS, and Linux**.
@@ -572,12 +684,170 @@ mkdir "$env:USERPROFILE\.antigravity-cleaner\sessions"
 
 
 
-## �🔍 SEO & Keywords
+## 🔍 SEO & Keywords | کلمات کلیدی و بهینه‌سازی موتور جستجو
+
 <details>
-<summary>Click to view related topics</summary>
-Antigravity IDE fix, uninstall Antigravity, clean reinstall, download failed, network error, google login fix, remove antigravity leftovers, windows cleaner, macos cleaner, linux cleaner, python script, automation, fix region lock, repair installation.
-حل مشکل نصب آنتی‌گرویتی، خطای شبکه، تغییر ریجن گوگل، پاک کردن کامل برنامه، ارور لاگین، دانلود ابزار تعمیر، اسکریپت پایتون.
+<summary>Click to view comprehensive search keywords in 8 languages</summary>
+
+### 🇬🇧 English Keywords:
+**Installation & Errors:**
+antigravity IDE fix, uninstall antigravity, clean reinstall, installation error, download failed, corrupted install, stuck process, leftover files, registry cleaner, complete uninstall
+
+**Network & Connectivity:**
+network error antigravity, google login fix, region lock fix, sanctioned countries google, DNS flush tool, network reset, proxy conflict, SSL certificate error, connectivity issues, timeout fix
+
+**Session & Browser:**
+browser session manager, cookie backup, session restore, encrypted session storage, chrome profile manager, browser login helper, authentication loop fix
+
+**Regional & Access:**
+restricted networks tool, region unlock, google account region change, VPN alternative, censorship bypass, internet freedom tool, access google services
+
+**Technical:**
+windows cleaner, macos cleaner, linux cleaner, python script, cross-platform tool, automation tool, system diagnostic, network diagnostic
+
+### 🇮🇷 فارسی (Persian) - کلمات کلیدی:
+**نصب و خطاها:**
+حل مشکل نصب انتی‌گرویتی، خطای نصب، دانلود ناقص، پاک کردن کامل برنامه، حذف فایل‌های اضافی، پاکسازی رجیستری، فرآیند گیرکرده
+
+**شبکه و اتصال:**
+خطای شبکه انتی‌گرویتی، مشکل ورود گوگل، تحریم گوگل، رفع مشکل ریجن، پاک کردن کش DNS، ریست شبکه، تداخل پروکسی، خطای گواهی SSL
+
+**نشست و مرورگر:**
+مدیریت نشست مرورگر، پشتیبان‌گیری کوکی، بازیابی session، ذخیره رمزنگاری‌شده، مدیریت پروفایل کروم، کمک‌کننده ورود مرورگر
+
+**منطقه‌ای و دسترسی:**
+ابزار شبکه‌های محدود، باز کردن ریجن، تغییر ریجن گوگل، جایگزین VPN، دور زدن سانسور، ابزار آزادی اینترنت، دسترسی به سرویس‌های گوگل
+
+**فنی:**
+پاک‌کننده ویندوز، پاک‌کننده مک، پاک‌کننده لینوکس، اسکریپت پایتون، ابزار کراس‌پلتفرم، ابزار اتوماسیون، تشخیص سیستم، تشخیص شبکه
+
+### 🇨🇳 中文 (Chinese) - 关键词:
+**安装和错误:**
+antigravity IDE 修复, 卸载 antigravity, 清洁重装, 安装错误, 下载失败, 损坏安装, 卡住进程, 残留文件, 注册表清理
+
+**网络和连接:**
+网络错误 antigravity, 谷歌登录修复, 区域锁定修复, 受制裁国家谷歌, DNS刷新工具, 网络重置, 代理冲突, SSL证书错误
+
+**会话和浏览器:**
+浏览器会话管理器, Cookie备份, 会话恢复, 加密会话存储, Chrome配置文件管理器
+
+**区域和访问:**
+受限网络工具, 区域解锁, 谷歌账户区域更改, VPN替代品, 审查绕过, 互联网自由工具
+
+**技术:**
+Windows清理器, macOS清理器, Linux清理器, Python脚本, 跨平台工具, 自动化工具
+
+### 🇷🇺 Русский (Russian) - Ключевые слова:
+**Установка и ошибки:**
+исправление antigravity IDE, удаление antigravity, чистая переустановка, ошибка установки, сбой загрузки, поврежденная установка, зависший процесс, остаточные файлы, очистка реестра
+
+**Сеть и подключение:**
+сетевая ошибка antigravity, исправление входа google, исправление региональной блокировки, санкционированные страны google, инструмент очистки DNS, сброс сети, конфликт прокси, ошибка SSL сертификата
+
+**Сессия и браузер:**
+менеджер сессий браузера, резервное копирование cookie, восстановление сессии, зашифрованное хранилище сессий, менеджер профилей chrome
+
+**Региональный и доступ:**
+инструмент ограниченных сетей, разблокировка региона, изменение региона аккаунта google, альтернатива VPN, обход цензуры, инструмент свободы интернета
+
+**Технический:**
+очиститель windows, очиститель macos, очиститель linux, python скрипт, кроссплатформенный инструмент, инструмент автоматизации
+
+### 🇹🇷 Türkçe (Turkish) - Anahtar Kelimeler:
+**Kurulum ve Hatalar:**
+antigravity IDE düzeltme, antigravity kaldırma, temiz yeniden kurulum, kurulum hatası, indirme başarısız, bozuk kurulum, takılı işlem, artık dosyalar, kayıt defteri temizleyici
+
+**Ağ ve Bağlantı:**
+ağ hatası antigravity, google giriş düzeltme, bölge kilidi düzeltme, yaptırım uygulanan ülkeler google, DNS temizleme aracı, ağ sıfırlama, proxy çakışması, SSL sertifika hatası
+
+**Oturum ve Tarayıcı:**
+tarayıcı oturum yöneticisi, çerez yedekleme, oturum geri yükleme, şifreli oturum depolama, chrome profil yöneticisi
+
+**Bölgesel ve Erişim:**
+kısıtlı ağlar aracı, bölge kilidi açma, google hesabı bölge değiştirme, VPN alternatifi, sansür aşma, internet özgürlüğü aracı
+
+### 🇪🇸 Español (Spanish) - Palabras Clave:
+**Instalación y Errores:**
+corrección antigravity IDE, desinstalar antigravity, reinstalación limpia, error de instalación, descarga fallida, instalación corrupta, proceso atascado, archivos residuales, limpiador de registro
+
+**Red y Conectividad:**
+error de red antigravity, corrección inicio sesión google, corrección bloqueo regional, países sancionados google, herramienta limpieza DNS, reinicio de red, conflicto proxy, error certificado SSL
+
+**Sesión y Navegador:**
+administrador sesiones navegador, respaldo cookies, restauración sesión, almacenamiento sesión cifrado, administrador perfiles chrome
+
+**Regional y Acceso:**
+herramienta redes restringidas, desbloqueo regional, cambio región cuenta google, alternativa VPN, elusión censura, herramienta libertad internet
+
+### 🇦🇪 العربية (Arabic) - الكلمات المفتاحية:
+**التثبيت والأخطاء:**
+إصلاح antigravity IDE، إلغاء تثبيت antigravity، إعادة تثبيت نظيفة، خطأ التثبيت، فشل التنزيل، تثبيت تالف، عملية عالقة، ملفات متبقية، منظف السجل
+
+**الشبكة والاتصال:**
+خطأ الشبكة antigravity، إصلاح تسجيل دخول google، إصلاح قفل المنطقة، الدول المحظورة google، أداة مسح DNS، إعادة تعيين الشبكة، تعارض الوكيل، خطأ شهادة SSL
+
+**الجلسة والمتصفح:**
+مدير جلسات المتصفح، نسخ احتياطي ملفات تعريف الارتباط، استعادة الجلسة، تخزين جلسة مشفر، مدير ملفات تعريف chrome
+
+**الإقليمي والوصول:**
+أداة الشبكات المقيدة، فتح المنطقة، تغيير منطقة حساب google، بديل VPN، تجاوز الرقابة، أداة حرية الإنترنت
+
+### 🇵🇰 اردو (Urdu) - مطلوبہ الفاظ:
+**تنصیب اور خرابیاں:**
+antigravity IDE ٹھیک کریں، antigravity ان انسٹال کریں، صاف دوبارہ تنصیب، تنصیب کی خرابی، ڈاؤن لوڈ ناکام، خراب تنصیب، پھنسا ہوا عمل، بچی ہوئی فائلیں
+
+**نیٹ ورک اور رابطہ:**
+نیٹ ورک کی خرابی antigravity، google لاگ ان ٹھیک کریں، علاقائی تالا ٹھیک کریں، پابندی والے ممالک google، DNS صاف کرنے کا آلہ، نیٹ ورک ری سیٹ
+
+**سیشن اور براؤزر:**
+براؤزر سیشن منیجر، کوکی بیک اپ، سیشن بحال کریں، خفیہ کردہ سیشن اسٹوریج، chrome پروفائل منیجر
+
+**علاقائی اور رسائی:**
+محدود نیٹ ورکس کا آلہ، علاقہ کھولیں، google اکاؤنٹ علاقہ تبدیل کریں، VPN متبادل، سنسرشپ سے بچنا
+
 </details>
+
+---
+
+## 🏷️ Recommended GitHub Topics | تگ‌های پیشنهادی GitHub
+
+To maximize discoverability, we recommend adding these topics to the repository:
+
+### Core Topics (Already Added):
+- `antigravity-cleaner`
+- `python`
+- `windows`
+- `macos`
+- `linux`
+
+### Network & Connectivity Topics:
+- `network-troubleshooting`
+- `dns-tools`
+- `connectivity-restoration`
+- `network-diagnostics`
+- `proxy-tools`
+
+### Regional & Access Topics:
+- `restricted-networks`
+- `region-unlock`
+- `internet-freedom`
+- `censorship-circumvention`
+- `sanctioned-regions`
+
+### Browser & Session Topics:
+- `browser-session-manager`
+- `cookie-manager`
+- `session-backup`
+- `chrome-profile-manager`
+
+### Technical Topics:
+- `system-cleaner`
+- `registry-cleaner`
+- `cross-platform`
+- `automation-tool`
+- `google-login-fix`
+
+**How to add topics:** Go to repository settings → Topics → Add the topics above
 
 ---
 
