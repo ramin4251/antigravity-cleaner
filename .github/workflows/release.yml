@@ -1,4 +1,4 @@
-name: Build and Release Pro (Zipped Portable)
+name: Build and Release Pro (Official CLI)
 
 on:
   push:
@@ -88,30 +88,13 @@ jobs:
           path: release-assets
           merge-multiple: true
 
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: release-assets/*
-          name: Antigravity Cleaner Pro ${{ github.ref_name }}
-          tag_name: ${{ github.ref }}
-          body: |
-            ## 💎 Antigravity Cleaner Pro - Official Portable Release
-            
-            This is the **Standard Portable** version. No installation required.
-            
-            ### 📥 Installation:
-            1. Download the ZIP file for your OS.
-            2. Extract ALL files to a folder.
-            3. Run `AntigravityCleaner`.
-            
-            ### ✨ Features:
-            - Fully Portable (saves data in local `data` folder).
-            - Apple-Style Premium UI.
-            - Supports 8+ Browsers.
-            - Built-in Google Connectivity Diagnostics.
-            
-            ---
-            **Powered by TAWANA NETWORK**
-            (c) 2024-2025 Tawana Mohammadi.
+      - name: Create Release using GitHub CLI
+        shell: bash
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG_NAME="${{ github.ref_name }}"
+          gh release create "$TAG_NAME" \
+            --title "Antigravity Cleaner Pro $TAG_NAME" \
+            --notes "## 💎 Official Portable Release\n\n- Cross-platform ZIP packages\n- Premium Apple-Style UI\n- Multi-browser Support\n- Powered by Tawana Network" \
+            release-assets/*
