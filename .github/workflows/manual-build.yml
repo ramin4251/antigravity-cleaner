@@ -33,10 +33,18 @@ jobs:
     steps:
       - name: Verify repository owner
         run: |
-          if [ "${{ github.actor }}" != "${{ github.repository_owner }}" ]; then
-            echo "❌ Error: Only repository owner can run manual builds"
+          ALLOWED_ACTORS=("tawroot" "tawanamohammadi")
+          IS_ALLOWED=false
+          for actor in "${ALLOWED_ACTORS[@]}"; do
+            if [ "${{ github.actor }}" == "$actor" ]; then
+              IS_ALLOWED=true
+              break
+            fi
+          done
+          
+          if [ "$IS_ALLOWED" = false ]; then
+            echo "❌ Error: Unauthorized actor"
             echo "Actor: ${{ github.actor }}"
-            echo "Owner: ${{ github.repository_owner }}"
             exit 1
           fi
           echo "✅ Permission verified: ${{ github.actor }}"
