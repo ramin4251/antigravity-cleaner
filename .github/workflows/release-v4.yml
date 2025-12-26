@@ -98,6 +98,7 @@ jobs:
             --version-file=version_info.txt `
             --manifest=app.manifest `
             --icon=icon.ico `
+            --collect-all customtkinter `
             --add-data "src;src" `
             --add-data "LICENSE;." `
             --hidden-import=customtkinter `
@@ -106,6 +107,7 @@ jobs:
             --hidden-import=tkinter.messagebox `
             --hidden-import=PIL `
             --hidden-import=PIL._tkinter_finder `
+            --hidden-import=pkg_resources.extern `
             src/gui_apple.py
           
           Write-Host "Build completed!" -ForegroundColor Green
