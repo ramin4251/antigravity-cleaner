@@ -1,21 +1,13 @@
-venv/
-__pycache__/
-*.pyc
+
+# User Data & Backups
+Data/
 *.log
-!.agent/logs/*.log
-.DS_Store
+*.tmp
 
-# Build files
-build/
-dist/
-*.spec
-*.exe
-*.app
+# Editor
+.vscode/
+.idea/
 
-
-# Build files
-build/
-dist/
-*.spec
-*.exe
-*.app
+# OS
+Thumbs.db
+Desktop.ini

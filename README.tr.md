@@ -1,8 +1,16 @@
 # Antigravity Cleaner Shell (v3.0.0)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Platform](https://img.shields.io/badge/Platform-Windows-blue)](https://microsoft.com/windows)
-[![Version](https://img.shields.io/badge/Version-3.0.0-green)]()
+<div align="center">
+  <img src="docs/images/banner.png" alt="Antigravity Cleaner Banner" width="100%">
+  <br>
+
+  [![License](https://img.shields.io/badge/License-TACL-red.svg?style=for-the-badge)](docs/LICENSE.md)
+  [![Platform](https://img.shields.io/badge/Platform-Windows-blue.svg?style=for-the-badge&logo=windows)](https://microsoft.com/windows)
+  [![Language](https://img.shields.io/badge/Language-PowerShell-yellow.svg?style=for-the-badge&logo=powershell)]()
+  [![Security](https://img.shields.io/badge/Security-Zero%20Telemetry-green.svg?style=for-the-badge&logo=shields)](docs/SECURITY.md)
+  [![Maintenance](https://img.shields.io/badge/Maintenance-Active-success.svg?style=for-the-badge)]()
+  [![Made With Love](https://img.shields.io/badge/Made%20With-Love-ff69b4.svg?style=for-the-badge)]()
+</div>
 
 > **İran halkına ve dijital yaptırımlar ile internet kısıtlamaları altında sıkışıp kalan herkese ithaf edilmiştir.**
 > Bilgiye, teknolojiye ve geliştirme araçlarına özgür erişimin her insanın en temel hakkı olduğuna inanıyoruz. Bu araç, dijital özgürlüğün sesidir; hem içeriden hem de dışarıdan etrafımıza örülen duvarları aşmak için tasarlandı.
@@ -10,14 +18,42 @@
 ---
 
 ## İçindekiler
-1. [Proje Hakkında](#proje-hakkında)
-2. [Kolay Kurulum (Tek Satır)](#kolay-kurulum-tek-satır)
-3. [Temel Özellikler](#temel-özellikler)
-4. [Güvenlik ve Gizlilik](#güvenlik-ve-gizlilik)
-5. [Modül Kılavuzu](#modül-kılavuzu)
-6. [Yol Haritası (Roadmap)](#yol-haritası-roadmap)
-7. [Lisans](#lisans)
-8. [Yazar Hakkında](#yazar-hakkında)
+1. [Bu Araç Kimin İçin?](#bu-araç-kimin-için)
+2. [Proje Hakkında](#proje-hakkında)
+3. [Kolay Kurulum (Tek Satır)](#kolay-kurulum-tek-satır)
+4. [Temel Özellikler](#temel-özellikler)
+5. [Güvenlik ve Gizlilik](#güvenlik-ve-gizlilik)
+6. [Modül Kılavuzu](#modül-kılavuzu)
+7. [Yol Haritası (Roadmap)](#yol-haritası-roadmap)
+8. [Lisans](#lisans)
+9. [Yazar Hakkında](#yazar-hakkında)
+
+---
+
+## 🎯 Bu Araç Kimin İçin?
+
+Bu araç özellikle şunlar için tasarlanmıştır:
+
+### 🌍 **Yaptırım Altındaki Bölgelerdeki Geliştiriciler**
+Eğer **İran, Çin, Rusya, Küba, Suriye, Kuzey Kore, Türkmenistan veya Türkiye'de** iseniz, muhtemelen şu hatalarla karşılaşmışsınızdır:
+*   Google servislerine erişirken `HTTP Error 403: Forbidden`
+*   Antigravity IDE kurulumunda `ModuleNotFoundError`
+*   Gemini AI, Colab veya Cloud Platform'a erişimi engelleyen Region Lock hataları
+*   Geliştirici araçlarını engelleyen Büyük Güvenlik Duvarı (Great Firewall) veya hükümet sansürü
+
+### 💻 **Kurulum Hatalarıyla Karşılaşan Programcılar**
+Bu aracın çözdüğü yaygın hatalar:
+*   `ERROR: Antigravity installation failed`
+*   `Pip install error: Could not find a version that satisfies the requirement`
+*   `Dependency conflict detected`
+*   Sistem yeniden kurulumundan sonra bozulan tarayıcı oturumları
+
+### 🔧 **Google Servislerine İhtiyaç Duyan Herkes**
+*   Gemini AI, Google Colab veya Cloud Platform'a ihtiyaç duyan geliştiriciler
+*   DNS/ağ müdahalesi yaşayan kullanıcılar
+*   Sistem değişikliklerinde tarayıcı oturumlarını korumak isteyenler
+
+**Eğer "antigravity install error nasıl düzeltilir" veya "region lock nasıl aşılır" diye Google'da arama yaptıysanız — bu araç tam size göre.**
 
 ---
 
@@ -38,6 +74,11 @@ iwr https://raw.githubusercontent.com/tawroot/antigravity-cleaner/main/antigravi
 ```
 
 *Hata alırsanız, terminali Yönetici (Administrator) olarak çalıştırın.*
+
+<div align="center">
+  <img src="docs/images/screen_collage.png" alt="Antigravity Shell Interface Collage" width="80%">
+  <p><i>Modüller ve Kullanıcı Arayüzü Genel Bakış</i></p>
+</div>
 
 ---
 
@@ -105,11 +146,70 @@ Sürekli yeni özellikler ekliyoruz. Gelecek planlarımız:
 
 ---
 
-## Lisans
-Bu proje **Tawana Anti-Copy License (TACL)** altında yayınlanmıştır. Kopyalanması ve ticari kullanımı yasaktır. Detaylar için `docs/LICENSE.md` dosyasına bakınız.
+## 📖 Dokümantasyon ve Doğrulama
+Her bir modülün (Oturum Yöneticisi, Bölge Denetçisi, Ağ Araçları) adım adım detaylı kullanımı için Wiki tarzı kılavuzlarımıza göz atın:
+
+👉 **[OKU: Profesyonel Kullanım Kılavuzu](docs/GUIDE.tr.md)**
+👉 **[GÜVENLİK: Sıfır Güven Politikası](docs/SECURITY.md)**
+👉 **[MİMARİ: Nasıl Çalışır](docs/ARCHITECTURE.md)**
+
+---
+
+## 📈 Proje Büyümesi (Star History)
+Büyüyoruz! Desteğiniz için teşekkürler.
+<br>
+<a href="https://star-history.com/#tawroot/antigravity-cleaner&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=tawroot/antigravity-cleaner&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=tawroot/antigravity-cleaner&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=tawroot/antigravity-cleaner&type=Date" />
+ </picture>
+</a>
+
+---
+
+## 💖 Dijital Özgürlük Kampanyası (Destek)
+**Zamana karşı bir yarış içindeyiz.**
+Yaptırımlar ve kısıtlamalar sürekli değişiyor. Antigravity Cleaner'ı her zaman güncel tutmak (ve sonunda **macOS & Linux** sürümlerini çıkarmak) için yüzlerce saatlik geliştirme çalışmasına ihtiyacımız var.
+
+**Desteğiniz bu motorun yakıtıdır.**
+Eğer bu araç sizi saatlerce hata ayıklamaktan kurtardıysa veya Google hesabınızı kurtardıysa, lütfen bağış yapmayı düşünün. Bu, uyanık kalmamıza, daha hızlı kod yazmamıza ve özgür internet için savaşmamıza yardımcı olur.
+
+<div align="center">
+
+| **Kripto** | **Cüzdan / Link** |
+| :--- | :--- |
+| **NOWPayments** | [👉 **Bağış Yap (BTC/ETH/USDT)**](https://nowpayments.io/donation/tawroot) |
+| **USDT (TRC20)** | `TN8GzU2X3x... (Linkte Mevcut)` |
+| **Bitcoin** | `bc1q... (Linkte Mevcut)` |
+
+</div>
+
+> *"Bağımsız geliştirme, sıfır sansürü garanti etmenin tek yoludur."*
+
+---
+
+## 🤝 Katkıda Bulunma
+Özellik önerilerinizi ve hata raporlarınızı bekliyoruz!
+
+**Nasıl Katkıda Bulunulur:**
+1.  **Özellik İstekleri:** GitHub'da [Discussions](https://github.com/tawroot/antigravity-cleaner/discussions) bölümünde paylaşın.
+2.  **Hata Raporları:** [Issues](https://github.com/tawroot/antigravity-cleaner/issues) bölümünde detaylı açıklama ile bildirin.
+3.  **Kod:** Lisansın özel yapısı nedeniyle Pull Request kabul edilmemektedir, ancak fikirleriniz ve geri bildirimleriniz çok değerlidir!
+
+---
+
+## 📞 İletişim ve Topluluk
+*   **Telegram Kanalı:** [t.me/panbehnet](https://t.me/panbehnet) - Güncellemeler, ipuçları ve destek.
+*   **GitHub Issues:** [Hata bildirin veya özellik isteyin](https://github.com/tawroot/antigravity-cleaner/issues).
+*   **GitHub Discussions:** [Sohbete katılın](https://github.com/tawroot/antigravity-cleaner/discussions).
 
 ---
 
 ## Yazar Hakkında
 **Tawana Network** tarafından geliştirilmiştir.
 *Başkalarının duvar ördüğü yerlere biz köprüler kuruyoruz.*
+
+<!--
+#antigravity #vpn #censorship #turkey #python #powershell #google-region-bypass #session-manager #devops #network-optimization #sanctions #internet-freedom #developer-tools
+-->
