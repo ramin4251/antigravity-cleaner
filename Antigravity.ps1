@@ -265,30 +265,50 @@ function Invoke-SessionManager {
     }
 }
 
-function Test-Google {
+function Test-SystemAnalysis {
     Show-Header
-    Show-Info "Google Connectivity Test"
+    Show-Info "Antigravity & Google Services Analysis"
     Write-Host ""
     
-    $endpoints = @{
-        "Google Search (google.com)" = "https://www.google.com"
-        "Gemini AI (generativelanguage.googleapis.com)" = "https://generativelanguage.googleapis.com"
-        "Google AI Studio (ai.google.dev)" = "https://ai.google.dev"
-        "Google Cloud (cloud.google.com)" = "https://cloud.google.com"
+    # 1. Google Services
+    Write-Host "  [Google Services]" -ForegroundColor Cyan
+    $googleEndpoints = @{
+        "Google Search"      = "https://www.google.com"
+        "Google Identity"    = "https://accounts.google.com"
+        "Gemini AI API"      = "https://generativelanguage.googleapis.com"
+        "Google AI Studio"   = "https://ai.google.dev"
+        "Google Cloud Platform" = "https://cloud.google.com"
+        "Colab"              = "https://colab.research.google.com"
     }
-    
-    foreach ($name in $endpoints.Keys) {
-        Write-Host "  Testing $name... " -NoNewline
+
+    foreach ($name in $googleEndpoints.Keys) {
+        Write-Host "    testing $name... " -NoNewline
         try {
-            $response = Invoke-WebRequest -Uri $endpoints[$name] -UseBasicParsing -TimeoutSec 5 -ErrorAction Stop
-            if ($response.StatusCode -eq 200) {
-                Write-Host "[OK]" -ForegroundColor Green
-            } else {
-                Write-Host "[WARN: $($response.StatusCode)]" -ForegroundColor Yellow
-            }
+            $req = Invoke-WebRequest -Uri $googleEndpoints[$name] -UseBasicParsing -TimeoutSec 5 -ErrorAction Stop
+            if ($req.StatusCode -eq 200) { Write-Host "OK" -ForegroundColor Green }
+            else { Write-Host "WARN ($($req.StatusCode))" -ForegroundColor Yellow }
         } catch {
-            Write-Host "[FAIL]" -ForegroundColor Red
-            Write-Host "    Reason: $_" -ForegroundColor DarkGray
+            Write-Host "FAIL" -ForegroundColor Red
+        }
+    }
+    Write-Host ""
+
+    # 2. Antigravity Dependencies
+    Write-Host "  [Antigravity Dependencies]" -ForegroundColor Cyan
+    $agEndpoints = @{
+        "VSCode Marketplace" = "https://marketplace.visualstudio.com"
+        "OpenVSX Registry"   = "https://open-vsx.org"
+        "Github API"         = "https://api.github.com"
+    }
+
+    foreach ($name in $agEndpoints.Keys) {
+        Write-Host "    testing $name... " -NoNewline
+        try {
+            $req = Invoke-WebRequest -Uri $agEndpoints[$name] -UseBasicParsing -TimeoutSec 5 -ErrorAction Stop
+            if ($req.StatusCode -eq 200) { Write-Host "OK" -ForegroundColor Green }
+            else { Write-Host "WARN ($($req.StatusCode))" -ForegroundColor Yellow }
+        } catch {
+            Write-Host "FAIL" -ForegroundColor Red
         }
     }
     Wait-Key
@@ -320,13 +340,13 @@ function Invoke-NetworkReset {
 function Invoke-NetworkTools {
     Show-Header
     Show-Info "Network Tools Module"
-    Write-Host "  [1] Google Connectivity Test"
+    Write-Host "  [1] Full System Analysis (Google + Antigravity)"
     Write-Host "  [2] Reset Network (Flush DNS, Winsock)"
     Write-Host "  [0] Back"
     
     $choice = Read-Host "  > Select"
     switch ($choice) {
-        "1" { Test-Google }
+        "1" { Test-SystemAnalysis }
         "2" { Invoke-NetworkReset }
         "0" { return }
     }
